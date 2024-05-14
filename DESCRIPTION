@@ -1,13 +1,16 @@
 Package: armadilLocalregression
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Local Polynomial Regression Using RcppArmadillo
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Author: Cecina Babich Morrow
+Maintainer: Cecina Babich Morrow <babichmorrowc@gmail.com>
+Description: Functions for linear regression and local polynomial regression using RcppArmadillo.
+License: GPL (>= 3)
 Encoding: UTF-8
 LazyData: true
 URL: https://github.com/babichmorrowc/armadilLocalregression
 BugReports: https://github.com/babichmorrowc/armadilLocalregression/issues
+RoxygenNote: 7.2.3
+Imports: 
+    mvtnorm,
+    stats
