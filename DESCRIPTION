@@ -13,4 +13,8 @@ BugReports: https://github.com/babichmorrowc/armadilLocalregression/issues
 RoxygenNote: 7.2.3
 Imports: 
     mvtnorm,
+    Rcpp,
     stats
+LinkingTo: 
+    Rcpp,
+    RcppArmadillo

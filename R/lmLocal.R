@@ -16,6 +16,16 @@
 #' @export
 #'
 #' @examples
+#' data(mtcars)
+#' y <- mtcars$mpg
+#' x <- as.matrix(mtcars[, c("wt", "hp")])
+#' X <- with(mtcars, cbind(1, wt, wt^2, hp, hp^2))
+#' # Choose a single prediction location
+#' x0 <- x[1, ]
+#' X0 <- X[1, ]
+#' H <- diag(2) # use identity bandwidth matrix for example
+#' prediction <- lmLocal(y, x0, X0, x, X, H)
+#' prediction
 lmLocal <- function(y, x0, X0, x, X, H){
   w <- mvtnorm::dmvnorm(x, x0, H)
   fit <- lm(y ~ -1 + X, weights = w)
@@ -40,6 +50,13 @@ lmLocal <- function(y, x0, X0, x, X, H){
 #' @export
 #'
 #' @examples
+#' data(mtcars)
+#' y <- mtcars$mpg
+#' x <- as.matrix(mtcars[, c("wt", "hp")])
+#' X <- with(mtcars, cbind(1, wt, wt^2, hp, hp^2))
+#' H <- diag(2) # use identity bandwidth matrix for example
+#' # Predict at all locations
+#' preds <- predLocal(y= y, x0 = x, X0 = X, x = x, X = X, H = H)
 predLocal <- function(y, x0, X0, x, X, H) {
   nsub <- nrow(x0)
   preds <- sapply(1:nsub, function(ii){
